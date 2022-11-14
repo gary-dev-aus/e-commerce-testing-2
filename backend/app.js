@@ -5,13 +5,12 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 
 const app = express();
+require("dotenv").config();
 
-const URI =
-  "mongodb+srv://garyAdmin:ZZMvUgN8bho7giKZ@cluster0.xfz1ziz.mongodb.net/node-auth";
 const PORT = 3000;
 
 mongoose
-  .connect(URI, {
+  .connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
